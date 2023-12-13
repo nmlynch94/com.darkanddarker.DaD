@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Jagex Launcher
+GenericName=Jagex Launcher
+Comment=Jagex Launcher
+Icon=com.darkanddarker.DaD
+Terminal=false
+Exec=dad-run
+Categories=Game;
+X-Flatpak-Tags=proprietary;
+X-Flatpak=com.darkanddarker.DaD

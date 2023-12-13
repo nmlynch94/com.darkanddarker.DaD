@@ -1,0 +1,119 @@
+# Versions
+x-gl-version: &gl-version '1.4'
+x-gl-versions: &gl-versions 23.08;1.4
+x-runtime-version: &runtime-version '23.08'
+# Flatpak manifest
+app-id: com.darkanddarker.DaD
+runtime: org.freedesktop.Platform
+runtime-version: *runtime-version
+sdk: org.freedesktop.Sdk
+command: dad-run
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --device=dri
+  - --share=network
+  - --allow=multiarch
+  - --allow=devel
+sdk-extensions:
+  - org.freedesktop.Sdk.Compat.i386
+  - org.freedesktop.Sdk.Extension.openjdk11
+add-extensions:
+  org.freedesktop.Platform.Compat.i386:
+    directory: lib/i386-linux-gnu
+    version: *runtime-version
+  org.freedesktop.Platform.GL32:
+    directory: lib/i386-linux-gnu/GL
+    version: *gl-version
+    versions: *gl-versions
+    subdirectories: true
+    no-autodownload: true
+    autodelete: false
+    add-ld-path: lib
+    merge-dirs: vulkan/icd.d;glvnd/egl_vendor.d;OpenCL/vendors;lib/dri;lib/d3d;vulkan/explicit_layer.d;vulkan/implicit_layer.d
+    download-if: active-gl-driver
+    enable-if: active-gl-driver
+modules:
+  - name: openjdk
+    buildsystem: simple
+    build-commands:
+      - /usr/lib/sdk/openjdk11/install.sh
+  - name: wine-ge
+    buildsystem: simple
+    build-commands:
+      - mkdir wine
+      - tar xf wine.tar.xz -C wine --strip-components 1 # String top level dir and place into predictable directory name to decouple from the name of the top-level dir
+      - install --directory /app/opt
+      - mv wine /app/opt/wine
+    sources:
+      - type: file
+        dest-filename: wine.tar.xz
+        url: https://github.com/GloriousEggroll/wine-ge-custom/releases/download/GE-Proton8-25/wine-lutris-GE-Proton8-25-x86_64.tar.xz
+        sha512: 03bc8e5f77a82226cc89d6141be4dd77afad003d23ce4fb98987b4446318c7c68953b5a10c379cbaf042a9185dd4629895e14cd9878b272cf74139ac0c07ee63
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/GloriousEggroll/wine-ge-custom/releases/latest
+          version-query: .tag_name | sub("^GE-Proton-"; "")
+          url-query: .assets[] | select(.name=="wine-lutris-" + $version + "-x86_64.tar.xz") | .browser_download_url
+  - name: dad-launcher
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/lib/i386-linux-gnu/GL
+      - mkdir -p /app/lib/debug/lib/i386-linux-gnu
+      - mkdir -p /app/bin
+      - install -Dm644 ld.so.conf /app/etc/ld.so.conf
+      - install -Dm644 BlacksmithInstaller.exe /app/BlacksmithInstaller.exe
+      - install -Dm644 com.darkanddarker.DaD.desktop /app/share/applications/com.darkanddarker.DaD.desktop
+      - install -Dm644 com.darkanddarker.DaD.metainfo.xml /app/share/metainfo/com.darkanddarker.DaD.metainfo.xml
+      - install -Dm644 512.png /app/share/icons/hicolor/512x512/apps/com.darkanddarker.DaD.png
+    sources:
+      - type: file
+        url: https://webdown.darkanddarker.com/Blacksmith%20Installer.exe
+        dest-filename: BlacksmithInstaller.exe
+        sha256: a874f039497b2e7b808766ad17b1ed9fbddeb7a1a814193bcb73b32b965ca6f1
+      - type: file
+        path: com.darkanddarker.DaD.desktop
+      - type: file
+        path: com.darkanddarker.DaD.metainfo.xml
+      - type: file
+        path: icons/512/512.png
+      - type: inline
+        dest-filename: ld.so.conf
+        contents: |
+          /app/lib32
+          /app/lib/i386-linux-gnu
+  - name: winetricks
+    no-autogen: true
+    make-args:
+      - PREFIX=/app
+    make-install-args:
+      - PREFIX=/app
+    sources:
+      - type: git
+        url: https://github.com/Winetricks/winetricks.git
+        tag: '20230212'
+        commit: e9f380aab64c07126d9259e1c16598c332c2f58f
+        x-checker-data:
+          type: git
+          tag-pattern: ^(\d+)$
+  - name: dxvk
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/opt/dxvk
+      - mv x32 /app/opt/dxvk/
+      - mv x64 /app/opt/dxvk/
+    sources:
+      - type: archive
+        url: https://github.com/doitsujin/dxvk/releases/download/v2.3/dxvk-2.3.tar.gz
+        sha256: 8059c06fc84a864122cc572426f780f35921eb4e3678dc337e9fd79ee5a427c0
+  - name: launch-script
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/bin
+      - install dad-run /app/bin/dad-run
+    sources:
+      - type: file
+        dest-filename: dad-run
+        path: scripts/dad-run.sh
