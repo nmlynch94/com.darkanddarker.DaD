@@ -66,15 +66,10 @@ modules:
       - mkdir -p /app/lib/debug/lib/i386-linux-gnu
       - mkdir -p /app/bin
       - install -Dm644 ld.so.conf /app/etc/ld.so.conf
-      - install -Dm644 BlacksmithInstaller.exe /app/BlacksmithInstaller.exe
       - install -Dm644 com.darkanddarker.DaD.desktop /app/share/applications/com.darkanddarker.DaD.desktop
       - install -Dm644 com.darkanddarker.DaD.metainfo.xml /app/share/metainfo/com.darkanddarker.DaD.metainfo.xml
       - install -Dm644 512.png /app/share/icons/hicolor/512x512/apps/com.darkanddarker.DaD.png
     sources:
-      - type: file
-        url: https://webdown.darkanddarker.com/Blacksmith%20Installer.exe
-        dest-filename: BlacksmithInstaller.exe
-        sha256: 1e500b84af34fd53e7b61d7cd0f0cb2e107a308169f61109d3a52ca633d3ef2f
       - type: file
         path: com.darkanddarker.DaD.desktop
       - type: file
