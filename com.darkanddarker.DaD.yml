@@ -100,3 +100,12 @@ modules:
       - type: file
         dest-filename: dad-run
         path: scripts/dad-run.sh
+      - type: file
+        url: http://cdn.darkanddarker.com/launcher
+        sha256: 222222222222222222222222222222222222222
+        x-checker-data:
+          type: json
+          url: http://cdn.darkanddarker.com/launcher/launcherinfo.json
+          version-query: .version
+          url-query: .baseuri + "/launcherinfo.json"
+          is-main-source: true
