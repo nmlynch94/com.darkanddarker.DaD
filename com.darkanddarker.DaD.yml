@@ -74,7 +74,7 @@ modules:
       - type: file
         url: https://webdown.darkanddarker.com/Blacksmith%20Installer.exe
         dest-filename: BlacksmithInstaller.exe
-        sha256: a874f039497b2e7b808766ad17b1ed9fbddeb7a1a814193bcb73b32b965ca6f1
+        sha256: 1e500b84af34fd53e7b61d7cd0f0cb2e107a308169f61109d3a52ca633d3ef2f
       - type: file
         path: com.darkanddarker.DaD.desktop
       - type: file
