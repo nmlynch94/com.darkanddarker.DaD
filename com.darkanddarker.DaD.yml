@@ -21,7 +21,6 @@ finish-args:
   - --allow=devel
 sdk-extensions:
   - org.freedesktop.Sdk.Compat.i386
-  - org.freedesktop.Sdk.Extension.openjdk11
 add-extensions:
   org.freedesktop.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
@@ -38,10 +37,6 @@ add-extensions:
     download-if: active-gl-driver
     enable-if: active-gl-driver
 modules:
-  - name: openjdk
-    buildsystem: simple
-    build-commands:
-      - /usr/lib/sdk/openjdk11/install.sh
   - name: wine-ge
     buildsystem: simple
     build-commands:
@@ -89,8 +84,13 @@ modules:
       - mv x64 /app/opt/dxvk/
     sources:
       - type: archive
-        url: https://github.com/doitsujin/dxvk/releases/download/v2.3/dxvk-2.3.tar.gz
-        sha256: 8059c06fc84a864122cc572426f780f35921eb4e3678dc337e9fd79ee5a427c0
+        url: https://github.com/doitsujin/dxvk/releases/download/v2.2/dxvk-2.2.tar.gz
+        sha256: fcbede6da370d138f275ca05bc887f5a562f27cd8bd00f436706a7142cb51630
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/doitsujin/dxvk/releases/latest
+          version-query: .tag_name | sub("^v"; "")
+          url-query: .assets[] | select(.name=="dxvk-" + $version + ".tar.gz") | .browser_download_url
   - name: launch-script
     buildsystem: simple
     build-commands:
