@@ -101,12 +101,4 @@ modules:
       - type: file
         dest-filename: dad-run
         path: scripts/dad-run.sh
-      - type: file
-        url: http://cdn.darkanddarker.com/launcher/launcherinfo.json
-        sha256: 049085505189c38e15b59242c69e5afdf97b627f158ae901497bf53a009d002f
-        x-checker-data:
-          type: json
-          url: http://cdn.darkanddarker.com/launcher/launcherinfo.json
-          version-query: .version
-          url-query: .baseuri + "/launcherinfo.json"
-          is-main-source: true
+      - dnd-sources.yaml
