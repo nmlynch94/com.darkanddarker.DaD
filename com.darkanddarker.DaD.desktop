@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Jagex Launcher
-GenericName=Jagex Launcher
-Comment=Jagex Launcher
+Name=Dark and Darker
+GenericName=Dark and Darker
+Comment=Dark and Darker
 Icon=com.darkanddarker.DaD
 Terminal=false
 Exec=dad-run
