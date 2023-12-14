@@ -3,7 +3,7 @@ I am in no way affiliated with IRONMACE and running the launcher through linux i
 
 # Installation Methods (This is not available on Flathub due to them not allowing Wine applications)
 ### Release Bundle (easiest)
-- Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed:
+- Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed NOTE: The first launch will take a long time and appear to be doing nothing. Winetricks is installing dependencies. It'll be faster subsequent times. Run from the cli `flatpak run com.darkanddarker.DaD` after the below command if you want to see progress.
 ```
 curl -fSsL https://raw.githubusercontent.com/nmlynch94/com.darkanddarker.DaD/main/install-dad-launcher.sh | bash
 ```
