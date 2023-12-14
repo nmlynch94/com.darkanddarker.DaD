@@ -42,6 +42,7 @@ jobs:
           chmod +x build.sh
           ./build.sh
           flatpak build-bundle ~/.local/share/flatpak/repo ${{ steps.variables.outputs.APP_NAME }}.flatpak ${{ steps.variables.outputs.APP_NAME }}
+          sha256sum ${{ steps.variables.outputs.APP_NAME }}.flatpak > ${{ steps.variables.outputs.APP_NAME }}.flatpak.sha256sum
       - name: Tag this branch with incremented release version
         id: new-tag
         run: |
@@ -50,5 +51,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ steps.variables.outputs.APP_NAME }}.flatpak
+          files: |
+            ${{ steps.variables.outputs.APP_NAME }}.flatpak
+            ${{ steps.variables.outputs.APP_NAME }}.flatpak.sha256sum
           tag_name: ${{ steps.variables.outputs.NEW_TAG }}
