@@ -29,5 +29,9 @@ WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURR
 # Make sure the registry has the installation location for hdos
 WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURRENT_USER\Software\Wine\AppDefaults\DungeonCrawler.exe\DllOverrides" /v "wininet" /t REG_SZ /d "builtin" /f
 
+WINEPREFIX="$wineprefix" DXVK_HUD=1 WINEDLLOVERRIDES="d3d11=n;d3d10core=n;dxgi=n;d3d9=n" "$WINEPREFIX/drive_c/windows/explorer.exe" &
+
+sleep 5
+
 # Run with overrides for dxvk
 WINEPREFIX="$wineprefix" DXVK_HUD=1 WINEDLLOVERRIDES="d3d11=n;d3d10core=n;dxgi=n;d3d9=n" "$winebin/wine" "$blacksmith_launcher_exe_path"
