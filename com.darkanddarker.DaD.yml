@@ -92,12 +92,34 @@ modules:
           url: https://api.github.com/repos/doitsujin/dxvk/releases/latest
           version-query: .tag_name | sub("^v"; "")
           url-query: .assets[] | select(.name=="dxvk-" + $version + ".tar.gz") | .browser_download_url
+  - name: jq
+    config-opts:
+      - --disable-maintainer-mode
+      - --with-oniguruma=builtin
+    sources:
+      - type: git
+        url: https://github.com/stedolan/jq
+        tag: jq-1.6
+        commit: 2e01ff1fb69609540b2bdc4e62a60499f2b2fb8e
+      - type: script
+        commands: [ "autoreconf -fi" ]
+        dest-filename: "autogen.sh"
+        x-checker-data:
+          type: anitya
+          project-id: 13252
+          stable-only: true
+          tag-template: jq-$version
   - name: launch-script
     buildsystem: simple
     build-commands:
       - mkdir -p /app/bin
       - install dad-run /app/bin/dad-run
+      - install dad-install /app/bin/dad-install
     sources:
       - type: file
         dest-filename: dad-run
         path: scripts/dad-run.sh
+      - type: file
+        dest-filename: dad-install
+        path: scripts/dad-install.sh
+

@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
-set -x
 
 winebin="/app/opt/wine/bin"
 wineprefix="$XDG_DATA_HOME"/prefix
@@ -14,8 +13,8 @@ if ! [ -f "$blacksmith_launcher_exe_path" ]; then
     cp -r /app/opt/dxvk/x32/*.dll "$wineprefix/drive_c/windows/syswow64/"
     WINEPREFIX="$wineprefix" winetricks wininet urlmon
     WINEPREFIX="$wineprefix" wineserver -k
-    curl -L "$blacksmith_launcher_installer_url" > BlacksmithInstaller.exe
-    WINEPREFIX="$wineprefix" DXVK_HUD=1 WINEDLLOVERRIDES="d3d11=n;d3d10core=n;dxgi=n;d3d9=n" "$winebin/wine" BlacksmithInstaller.exe
+
+    dad-install "$wineprefix/drive_c/Program Files/IRONMACE/"
     exit 0
 fi  
 

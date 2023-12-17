@@ -1,6 +1,10 @@
 # Disclaimer
 I am in no way affiliated with IRONMACE and running the launcher through linux is unsupported by them. Any issues should be reported here as tickets. Use at your own risk.
 
+# Known Issues
+- During installation in the blacksmith launcher, Verifiying integrity never completes after the download. Closing and re-opening the launcher fixes this.
+- Run a scan and repair if you want to be sure everything is correct.
+
 # Installation Methods (This is not available on Flathub due to them not allowing Wine applications)
 ### Release Bundle (easiest)
 - Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed NOTE: The first launch will take a long time and appear to be doing nothing. Winetricks is installing dependencies. It'll be faster subsequent times. Run from the cli `flatpak run com.darkanddarker.DaD` after the below command if you want to see progress.
