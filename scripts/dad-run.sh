@@ -30,4 +30,4 @@ WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURR
 WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURRENT_USER\Software\Wine\AppDefaults\DungeonCrawler.exe\DllOverrides" /v "wininet" /t REG_SZ /d "builtin" /f
 
 # Run with overrides for dxvk
-WINEPREFIX="$wineprefix" DXVK_HUD=1 WINEDLLOVERRIDES="d3d11=n;d3d10core=n;dxgi=n;d3d9=n" "$winebin/wine" explorer /desktop=virtual,1280x800 "$blacksmith_launcher_exe_path"
+WINEPREFIX="$wineprefix" DXVK_HUD=1 WINEDLLOVERRIDES="d3d11=n;d3d10core=n;dxgi=n;d3d9=n" "$winebin/wine" "$blacksmith_launcher_exe_path"
