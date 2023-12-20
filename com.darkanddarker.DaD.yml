@@ -115,6 +115,8 @@ modules:
       - mkdir -p /app/bin
       - install dad-run /app/bin/dad-run
       - install dad-install /app/bin/dad-install
+      - mv vc_redist.x86.exe /app
+      - mv vc_redist.x64.exe /app
     sources:
       - type: file
         dest-filename: dad-run
@@ -122,4 +124,11 @@ modules:
       - type: file
         dest-filename: dad-install
         path: scripts/dad-install.sh
-
+      - type: file
+        dest-filename: vc_redist.x86.exe
+        url: https://aka.ms/vs/17/release/vc_redist.x86.exe
+        sha256: c61cef97487536e766130fa8714dd1b4143f6738bfb71806018eee1b5fe6f057
+      - type: file
+        dest-filename: vc_redist.x64.exe
+        url: https://aka.ms/vs/17/release/vc_redist.x64.exe
+        sha256: 4dfe83c91124cd542f4222fe2c396cabeac617bb6f59bdcbdf89fd6f0df0a32f

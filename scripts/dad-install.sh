@@ -59,13 +59,44 @@ function install_blacksmith() {
 
 function install_dungeon_crawler() {
     file_list="$(curl -fSsL $BASE_DAD_URL/PatchFileList.txt)"
+    dungeon_registry_entries=()
     mkdir -p "$DARK_AND_DARKER"
+
+    out_reg="$XDG_DATA_HOME"/out.reg
+
+    echo "Windows Registry Editor Version 5.00" > "$out_reg"
+
+    echo "[HKEY_CURRENT_USER\Software\IRONMACE]" >> "$out_reg"
+
+    echo "[HKEY_CURRENT_USER\Software\IRONMACE\Blacksmith]" >> "$out_reg"
+    echo "\"Avatar\"=dword:00000000" >> "$out_reg"
+    echo "\"KeepMeLoggedIn\"=dword:00000001" >> "$out_reg"
+    echo "\"LastLoginEmail\"=\"\"" >> "$out_reg"
+    echo "\"LastStatus\"=dword:00000001" >> "$out_reg"
+    echo "\"Path\"=\"C:\\\\Program Files\\\\IRONMACE\\\\Blacksmith\"" >> "$out_reg"
+    echo "\"RememberEmail\"=dword:00000001" >> "$out_reg"
+
+    echo "[HKEY_CURRENT_USER\Software\IRONMACE\Dark and Darker]" >> "$out_reg"
+    echo "\"AutoUpdate\"=dword:00000000" >> "$out_reg"
+    echo "\"InstalledPath\"=\"C:\\\\Program Files\\\\IRONMACE\\\\Dark and Darker\"" >> "$out_reg"
+    echo "\"LaunchedProcessId\"=dword:00000000" >> "$out_reg"
+    echo "\"LaunchOption\"=\"\"" >> "$out_reg"
+    echo "\"LaunchOptionFlag\"=dword:000000ff" >> "$out_reg"
+
+    echo "[HKEY_CURRENT_USER\Software\IRONMACE\Dark and Darker\Contents]" >> "$out_reg"
     
     file_list=$(echo "$file_list" | awk -F',' '{printf("{\"path\":\"%s\",\"digest\":\"%s\"},", $1, $2)}' | sed 's|\\|/|g')
     file_list_json=$(echo "[$file_list]" | sed 's|,]$|]|g')
+
     echo "$file_list_json" | jq -c '.[]' | while read i; do
         digest=$(echo "$i" | jq -r '.digest')
         path=$(echo "$i" | jq -r '.path' | sed 's|^/||g')
+        # echo "$path"
+        # entry=$(echo "/$path" | xargs echo | sed 's|^/||g')
+        entry="$(echo /$path | sed 's|/|\\\\|g')"
+        entry=\""$entry\"=\"$digest\""
+        echo "$entry" >> "$XDG_DATA_HOME"/out.reg
+
         mkdir -p "$(dirname "$DARK_AND_DARKER$path")" || echo "File already exists"
 	      curl -fSs -L "$BASE_DAD_URL/Patch/$path" > "$DARK_AND_DARKER""$path"
         
