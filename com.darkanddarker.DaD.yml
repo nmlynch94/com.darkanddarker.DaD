@@ -109,6 +109,19 @@ modules:
           project-id: 13252
           stable-only: true
           tag-template: jq-$version
+  - name: install_script
+    buildsystem: simple
+    build-commands:
+      - install apply_extra /app/bin
+      - mv blacksmith_sources.yaml /app
+    sources:
+      - type: file
+        path: scripts/apply_extra.sh
+        dest-filename: apply_extra
+      - blacksmith_sources.yaml
+      - bs_installer_sources.yaml
+      - type: file
+        path: blacksmith_sources.yaml
   - name: launch-script
     buildsystem: simple
     build-commands:
