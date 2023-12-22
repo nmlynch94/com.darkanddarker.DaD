@@ -28,6 +28,7 @@ jobs:
             echo "blacksmith: $BLACKSMITH_CURRENT_HASH -> $BLACKSMITH_REMOTE_HASH"
             echo "BS_DIGEST=$BLACKSMITH_REMOTE_HASH" >> $GITHUB_OUTPUT
             echo 'new_release=true' >> $GITHUB_OUTPUT
+            echo "$BLACKSMITH_REMOTE_HASH" > BLACKSMITH
           else
             echo "No new release found."
             echo 'new_release=false' >> $GITHUB_OUTPUT
