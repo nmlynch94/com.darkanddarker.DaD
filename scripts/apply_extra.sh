@@ -1,9 +1,8 @@
-CPPREST_SKIP=67816596
+CPPREST_SKIP=68510356 
 CPPREST_BYTES=965632
 
 for f in *; do
-  cat /app/blacksmith_sources.yaml | grep -i "/$f" | awk -F':' '{ print $2}' | tail -n 1
-  file_dest="$(cat /app/blacksmith_sources.yaml | grep -i "/$f" | awk -F': ' '{ print $2 }' | tail -n 1)"
+  file_dest="$(cat /app/blacksmith_sources.yaml | grep -i "dest:.*$f" | awk -F': ' '{ print $2 }')"
   mkdir -p "$(dirname "$file_dest")"
   mv "$f" "$file_dest"
 done

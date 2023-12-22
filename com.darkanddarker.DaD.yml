@@ -127,16 +127,12 @@ modules:
     build-commands:
       - mkdir -p /app/bin
       - install dad-run /app/bin/dad-run
-      - install dad-install /app/bin/dad-install
       - mv vc_redist.x86.exe /app
       - mv vc_redist.x64.exe /app
     sources:
       - type: file
         dest-filename: dad-run
         path: scripts/dad-run.sh
-      - type: file
-        dest-filename: dad-install
-        path: scripts/dad-install.sh
       - type: file
         dest-filename: vc_redist.x86.exe
         url: https://aka.ms/vs/17/release/vc_redist.x86.exe

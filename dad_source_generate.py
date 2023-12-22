@@ -27,8 +27,14 @@ logger.addHandler(ch)
 # 'application' code
 logger.info('info message')
 
-base_url="http://cdn.darkanddarker.com/launcher"
-base_dad_url="/Dark%20and%20Darker"
+base_url="http://cdn.darkanddarker.com"
+
+base_launcher_path="launcher"
+base_dad_path="Dark%20and%20Darker"
+dad_patch_path="Patch"
+launcher_info_path="launcherinfo.json"
+dad_info_path="PatchFileList.txt"
+
 
 base_output_dir="IRONMACE"
 base_blacksmith_dir="Blacksmith"
@@ -53,7 +59,7 @@ def http_get(url):
         raise SystemExit(e)
 
 def write_launcher_sources():
-    response_text = http_get("{}/launcherinfo.json".format(base_url))
+    response_text = http_get("{}/{}/{}".format(base_url, base_launcher_path, launcher_info_path))
     response_json = json.loads(response_text)
     sources = []
     for item in response_json["files"]:
@@ -73,10 +79,10 @@ def write_launcher_sources():
         source = {
             "type": "extra-data",
             "filename": file_name,
-            "url": "{}{}".format(base_url, quoted_path),
+            "url": "{}/{}{}".format(base_url, base_launcher_path, quoted_path),
             "dest": "{}/{}/{}".format(base_output_dir, base_blacksmith_dir, path).replace("//", "/"),
             "sha256": digest,
-            "size": size
+            "size": int(size)
         }
         sources.append(source)
     with open("blacksmith_sources.yaml", "w") as f:
@@ -97,6 +103,9 @@ def write_installer_source():
     }
     with open("bs_installer_sources.yaml", "w") as f:
         f.write(yaml.dump(source, sort_keys=False))
+
+def get_last_element_of_array(array):
+    return array[len(array) - 1]
 
 def main() :
     write_launcher_sources()
