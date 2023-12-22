@@ -1,0 +1,7 @@
+[Flatpak Repo]
+Title = JagexLauncher
+Url = https://nmlynch.github.io
+Homepage = https://nmlynch.github.io
+Comment = Jagex Launcher
+Description = Jagex Launcher
+DefaultBranch = stable
