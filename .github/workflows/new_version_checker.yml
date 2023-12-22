@@ -37,14 +37,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           cache: pip
+          python-version: '3.12'
       - name: Install dependencies
         if: steps.check.outputs.new_release == 'true'
         run: pip install -r requirements.txt
       - name: Generate release
         if: steps.check.outputs.new_release == 'true'
         id: generate
-        run: |
-          python dad_source_generate.py
+        run: python dad_source_generate.py
       - name: Save changes to repo
         if: steps.check.outputs.new_release == 'true'
         env:
