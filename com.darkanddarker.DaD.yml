@@ -101,10 +101,10 @@ modules:
       - type: file
         path: scripts/apply_extra.sh
         dest-filename: apply_extra
-      - blacksmith_sources.yaml
-      - bs_installer_sources.yaml
+      - sources/blacksmith_sources.yaml
+      - sources/bs_installer_sources.yaml
       - type: file
-        path: blacksmith_sources.yaml
+        path: sources/blacksmith_sources.yaml
   - name: launch-script
     buildsystem: simple
     build-commands:
