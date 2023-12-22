@@ -19,7 +19,7 @@ jobs:
           set -euo pipefail
 
           # Blacksmith Check
-          BLACKSMITH_CURRENT_HASH=$(cat BLACKSMITH)
+          BLACKSMITH_CURRENT_HASH=$(cat sources/BLACKSMITH)
           BLACKSMITH_JSON="$(curl -fSsL http://cdn.darkanddarker.com/launcher/launcherinfo.json)"
           BLACKSMITH_REMOTE_HASH=$(echo "$BLACKSMITH_JSON" | sha256sum | awk '{print $1}')
 
@@ -28,7 +28,7 @@ jobs:
             echo "blacksmith: $BLACKSMITH_CURRENT_HASH -> $BLACKSMITH_REMOTE_HASH"
             echo "BS_DIGEST=$BLACKSMITH_REMOTE_HASH" >> $GITHUB_OUTPUT
             echo 'new_release=true' >> $GITHUB_OUTPUT
-            echo "$BLACKSMITH_REMOTE_HASH" > BLACKSMITH
+            echo "$BLACKSMITH_REMOTE_HASH" > sources/BLACKSMITH
           else
             echo "No new release found."
             echo 'new_release=false' >> $GITHUB_OUTPUT
