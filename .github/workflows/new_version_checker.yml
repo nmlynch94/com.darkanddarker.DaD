@@ -76,3 +76,9 @@ jobs:
           delete-branch: true
           title: Dark and Darker update
           body: "blacksmith: ${{steps.check.outputs.BS_DIGEST}}"
+      - name: Automerge Pull Request
+        if: steps.check.outputs.new_release == 'true'
+        run: gh pr merge --rebase --auto "$PR_NUMBER"
+        env:
+          GH_TOKEN: ${{ secrets.EXTERNAL_DATA_SECRET }}
+          PR_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
