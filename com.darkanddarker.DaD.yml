@@ -92,12 +92,35 @@ modules:
           url: https://api.github.com/repos/doitsujin/dxvk/releases/latest
           version-query: .tag_name | sub("^v"; "")
           url-query: .assets[] | select(.name=="dxvk-" + $version + ".tar.gz") | .browser_download_url
+  - name: install_script
+    buildsystem: simple
+    build-commands:
+      - install apply_extra /app/bin
+      - mv blacksmith_sources.yaml /app
+    sources:
+      - type: file
+        path: scripts/apply_extra.sh
+        dest-filename: apply_extra
+      - blacksmith_sources.yaml
+      - bs_installer_sources.yaml
+      - type: file
+        path: blacksmith_sources.yaml
   - name: launch-script
     buildsystem: simple
     build-commands:
       - mkdir -p /app/bin
       - install dad-run /app/bin/dad-run
+      - mv vc_redist.x86.exe /app
+      - mv vc_redist.x64.exe /app
     sources:
       - type: file
         dest-filename: dad-run
         path: scripts/dad-run.sh
+      - type: file
+        dest-filename: vc_redist.x86.exe
+        url: https://aka.ms/vs/17/release/vc_redist.x86.exe
+        sha256: c61cef97487536e766130fa8714dd1b4143f6738bfb71806018eee1b5fe6f057
+      - type: file
+        dest-filename: vc_redist.x64.exe
+        url: https://aka.ms/vs/17/release/vc_redist.x64.exe
+        sha256: 4dfe83c91124cd542f4222fe2c396cabeac617bb6f59bdcbdf89fd6f0df0a32f

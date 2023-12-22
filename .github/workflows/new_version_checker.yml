@@ -1,0 +1,78 @@
+name: Check for new releases
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for update
+        id: check
+        run: |
+          set -euo pipefail
+
+          # Blacksmith Check
+          BLACKSMITH_CURRENT_HASH=$(cat BLACKSMITH)
+          BLACKSMITH_JSON="$(curl -fSsL http://cdn.darkanddarker.com/launcher/launcherinfo.json)"
+          BLACKSMITH_REMOTE_HASH=$(echo "$BLACKSMITH_JSON" | sha256sum | awk '{print $1}')
+
+          if [ "$BLACKSMITH_CURRENT_HASH" != "$BLACKSMITH_REMOTE_HASH" ]; then
+            echo "New release found!"
+            echo "blacksmith: $BLACKSMITH_CURRENT_HASH -> $BLACKSMITH_REMOTE_HASH"
+            echo "BS_DIGEST=$BLACKSMITH_REMOTE_HASH" >> $GITHUB_OUTPUT
+            echo 'new_release=true' >> $GITHUB_OUTPUT
+          else
+            echo "No new release found."
+            echo 'new_release=false' >> $GITHUB_OUTPUT
+          fi
+      - name: Setup Python
+        if: steps.check.outputs.new_release == 'true'
+        uses: actions/setup-python@v5
+        with:
+          cache: pip
+      - name: Install dependencies
+        if: steps.check.outputs.new_release == 'true' && steps.check.outputs.hash != ''
+        run: pip install -r requirements.txt
+      - name: Generate release
+        if: steps.check.outputs.new_release == 'true'
+        id: generate
+        run: |
+          python dad_source_generation.py
+      - name: Save changes to repo
+        if: steps.check.outputs.new_release == 'true'
+        env:
+          GIT_AUTHOR_NAME: Flatpak External Data Checker
+          GIT_COMMITTER_NAME: Flatpak External Data Checker
+          # email sets "github-actions[bot]" as commit author, see https://github.community/t/github-actions-bot-email-address/17204/6
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GITHUB_TOKEN: ${{ secrets.EXTERNAL_DATA_SECRET }}
+        run: |
+          git add .
+          git commit -m "Update blacksmith: ${{steps.check.outputs.BS_DIGEST}}"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        id: cpr
+        if: steps.check.outputs.new_release == 'true'
+        env:
+          GIT_AUTHOR_NAME: Flatpak External Data Checker
+          GIT_COMMITTER_NAME: Flatpak External Data Checker
+          # email sets "github-actions[bot]" as commit author, see https://github.community/t/github-actions-bot-email-address/17204/6
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GITHUB_TOKEN: ${{ secrets.EXTERNAL_DATA_SECRET }}
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          branch: automated/dad-update
+          delete-branch: true
+          title: Dark and Darker update
+          body: "blacksmith: ${{steps.check.outputs.BS_DIGEST}}"
