@@ -38,13 +38,13 @@ jobs:
         with:
           cache: pip
       - name: Install dependencies
-        if: steps.check.outputs.new_release == 'true' && steps.check.outputs.hash != ''
+        if: steps.check.outputs.new_release == 'true'
         run: pip install -r requirements.txt
       - name: Generate release
         if: steps.check.outputs.new_release == 'true'
         id: generate
         run: |
-          python dad_source_generation.py
+          python dad_sourcdad_source_generate.pye_generation.py
       - name: Save changes to repo
         if: steps.check.outputs.new_release == 'true'
         env:
