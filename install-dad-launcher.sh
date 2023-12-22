@@ -4,4 +4,5 @@ flatpak install -y flathub --user runtime/org.freedesktop.Platform.GL.default/x8
 curl -L https://github.com/nmlynch94/com.darkanddarker.DaD/releases/latest/download/com.darkanddarker.DaD.flatpak > com.darkanddarker.DaD.flatpak
 echo "Installing......"
 flatpak install -y --user com.darkanddarker.DaD.flatpak
+flatpak run com.darkanddarker.DaD
 echo "DONE"
