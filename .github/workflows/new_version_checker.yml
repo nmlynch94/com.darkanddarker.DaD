@@ -71,7 +71,7 @@ jobs:
           EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
           GITHUB_TOKEN: ${{ secrets.EXTERNAL_DATA_SECRET }}
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.EXTERNAL_DATA_SECRET }}
           branch: automated/dad-update
           delete-branch: true
           title: Dark and Darker update
