@@ -4,6 +4,7 @@ import urllib.request
 import yaml
 import json
 from urllib.parse import quote
+import pathlib
 import hashlib
 import os
 
@@ -103,6 +104,7 @@ def write_installer_source():
     }
     with open("bs_installer_sources.yaml", "w") as f:
         f.write(yaml.dump(source, sort_keys=False))
+    pathlib.Path.unlink("bsi.exe")
 
 def get_last_element_of_array(array):
     return array[len(array) - 1]
