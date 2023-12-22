@@ -30,7 +30,7 @@ flatpak install --user flathub org.gnome.Platform.Compat.i386//45
 4. NOTE: The additional flatpak install command above is to make sure Compat.i386 is installed due to https://github.com/flathub/net.lutris.Lutris/issues/53
 5. Now, you can run the launcher from your application menu
 
-### If you have a steam deck
+### If you have a steam deck (NOTE: This only works in desktop mode right now)
 - Follow one of the methods above, then simply right click on the icon in the Application Menu and choose to create a steam shortcut. Then, you will be able to launch it in Game Mode.
 - You may want to rename your shortcut to DarkandDarker because the way the deck searches community control schemes is by matching your game's name.
 - I recommend the release bundle method especially, because the flatpak-builder method will require you to disable your Read Only partition in order to install flatpak-builder https://steamdecki.org/SteamOS/Read-only_Filesystem. I don't recommend doing this unless you are familiar enough with Linux to know you can ignore this warning.
