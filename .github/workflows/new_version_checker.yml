@@ -44,7 +44,7 @@ jobs:
         if: steps.check.outputs.new_release == 'true'
         id: generate
         run: |
-          python dad_sourcdad_source_generate.pye_generation.py
+          python dad_source_generate.py
       - name: Save changes to repo
         if: steps.check.outputs.new_release == 'true'
         env:
