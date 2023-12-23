@@ -11,8 +11,13 @@ Dark and Darker - in a flatpak!
   - Closing the launcher only works if you right click -> exit on the task bar, and then wait several seconds. Clicking the 'x' freezes the client.
   - During installation, the installer never finishes when it's full. Once it's full, closing and reopening resolves this.
   - Minimize the blacksmith launcher after game launch, or your clicks will bleed through the client when you try to swing.
+  - You may need to alt tab out and in once after launch for clicks to register.
 ```
 curl -fSsL https://raw.githubusercontent.com/nmlynch94/com.darkanddarker.DaD/main/install-dad-launcher.sh | bash
+```
+For the first run, winetricks dependencies will need to install. I recommend running via the cli one time in order to make sure nothing is frozen. You can launch from the application menu going forward.
+```
+flatpak run com.darkanddarker.DaD
 ```
 ### Build and Install Locally
 
