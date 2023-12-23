@@ -6,10 +6,9 @@ Dark and Darker - in a flatpak!
 
 # Installation Methods (This is not available on Flathub due to them not allowing Wine applications)
 ### Release Bundle (easiest)
-- Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed NOTE: The first launch will take a long time and appear to be doing nothing. Winetricks is installing dependencies. It'll be faster subsequent times. Run from the cli `flatpak run com.darkanddarker.DaD` after the below command if you want to see progress.
+- Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed NOTE: The first launch will take a long time and appear to be doing nothing. Winetricks is installing dependencies and it's installing the dependencies from the blacksmith installer exe.
 - Known Issues:
   - Closing the launcher only works if you right click -> exit on the task bar, and then wait several seconds. Clicking the 'x' freezes the client.
-  - During installation, you MUST select a location in your C drive. I recommend in users\Public\Desktop.
   - During installation, the installer never finishes when it's full. Once it's full, closing and reopening resolves this.
   - Minimize the blacksmith launcher after game launch, or your clicks will bleed through the client when you try to swing.
 ```
@@ -42,4 +41,5 @@ To update, you can simply follow one of the above installation instructions on t
 
 ### Future Improvements
 - Resolve the known issues (Contributions Welcome).
+- Game mode support on steam deck. Right now, the login page shows but the launcher transition does not work after login.
 - Use github pages to distribute via a flatmanager repo instead of using a single-file bundle.
