@@ -7,8 +7,6 @@ blacksmith_path="/app/extra/IRONMACE/Blacksmith"
 blacksmith_launcher_exe_path="$blacksmith_path/BlacksmithBootstrap.exe"
 blacksmith_launcher_installer_url="https://webdown.darkanddarker.com/Blacksmith%20Installer.exe"
 
-set -x
-
 if [ ! -f "$XDG_DATA_HOME"/BLACKSMITH ] || [ $(cat "$XDG_DATA_HOME"/BLACKSMITH) != $(cat /app/BLACKSMITH) ]; then
     echo "DIGESTS DO NOT MATCH. UPDATING $(cat "$XDG_DATA_HOME"/BLACKSMITH) -> $(cat /app/BLACKSMITH)"
     cp /app/BLACKSMITH "$XDG_DATA_HOME"/BLACKSMITH # This digest is used to tell if an update is needed.
