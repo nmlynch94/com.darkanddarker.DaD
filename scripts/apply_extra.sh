@@ -1,7 +1,9 @@
+set -e
+
 for f in *; do
   file_dest="$(cat /app/blacksmith_sources.yaml | grep -i "dest:.*$f" | awk -F': ' '{ print $2 }')"
   mkdir -p "$(dirname "$file_dest")"
-  mv "$f" "$file_dest"
+  mv "$f" "$file_dest" || echo "$f"" had no destination"
 done
 
 files="$(python ./pecheck.py -l P bsi.exe)"

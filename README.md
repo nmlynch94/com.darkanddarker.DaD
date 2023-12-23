@@ -41,5 +41,5 @@ flatpak install --user flathub org.gnome.Platform.Compat.i386//45
 To update, you can simply follow one of the above installation instructions on the latest code/release. Most updates will be self-updates from the launcher. Choose repair when you are presented the C++ installation prompt.
 
 ### Future Improvements
-- Resolve the known issues (Contributions Welcome)
-- Use github pages to distribute via a flatmanager repo instead of using a single-file bundle
+- Resolve the known issues (Contributions Welcome).
+- Use github pages to distribute via a flatmanager repo instead of using a single-file bundle.
