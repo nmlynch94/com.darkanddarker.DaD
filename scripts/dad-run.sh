@@ -1,21 +1,26 @@
 #!/bin/sh
-# set -e
+set -e
 
 winebin="/app/opt/wine/bin"
 wineprefix="$XDG_DATA_HOME"/prefix
-blacksmith_launcher_exe_path="/app/extra/IRONMACE/Blacksmith/BlacksmithBootstrap.exe"
+blacksmith_path="/app/extra/IRONMACE/Blacksmith"
+blacksmith_launcher_exe_path="$blacksmith_path/BlacksmithBootstrap.exe"
 blacksmith_launcher_installer_url="https://webdown.darkanddarker.com/Blacksmith%20Installer.exe"
 
-if ! [ -f "$wineprefix" ]; then
+set -x
+
+if [ ! -f "$XDG_DATA_HOME"/BLACKSMITH ] || [ $(cat "$XDG_DATA_HOME"/BLACKSMITH) != $(cat /app/BLACKSMITH) ]; then
+    echo "DIGESTS DO NOT MATCH. UPDATING $(cat "$XDG_DATA_HOME"/BLACKSMITH) -> $(cat /app/BLACKSMITH)"
+    cp /app/BLACKSMITH "$XDG_DATA_HOME"/BLACKSMITH # This digest is used to tell if an update is needed.
     WINEDEBUG="-all" WINEPREFIX="$wineprefix" "$winebin/wineboot" -u
+
     # Make sure dxvk is in place in our prefix
     cp -r /app/opt/dxvk/x64/*.dll "$wineprefix/drive_c/windows/system32/"
     cp -r /app/opt/dxvk/x32/*.dll "$wineprefix/drive_c/windows/syswow64/"
     WINEDEBUG="-all" WINEPREFIX="$wineprefix" winetricks --unattended wininet urlmon
     WINEDEBUG="-all" WINEPREFIX="$wineprefix" wineserver -k
 
-    WINEPREFIX="$wineprefix" "$winebin/wine" /app/vc_redist.x86.exe
-    WINEPREFIX="$wineprefix" "$winebin/wine" /app/vc_redist.x64.exe
+    WINEPREFIX="$wineprefix" "$winebin/wine" "$blacksmith_path"/VC_redist.x64.exe
 fi
 
 # Run with overrides for dxvk
