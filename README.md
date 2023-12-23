@@ -1,19 +1,20 @@
 # Disclaimer
 I am in no way affiliated with IRONMACE and running the launcher through linux is unsupported by them. Any issues should be reported here as tickets. Use at your own risk.
 
-# Known Issues
-- During installation in the blacksmith launcher, Verifiying integrity never completes after the download. Closing and re-opening the launcher fixes this.
-- Run a scan and repair if you want to be sure everything is correct.
+# What is it?
+Dark and Darker - in a flatpak!
 
 # Installation Methods (This is not available on Flathub due to them not allowing Wine applications)
 ### Release Bundle (easiest)
 - Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed NOTE: The first launch will take a long time and appear to be doing nothing. Winetricks is installing dependencies. It'll be faster subsequent times. Run from the cli `flatpak run com.darkanddarker.DaD` after the below command if you want to see progress.
+- Known Issues:
+  - Closing the launcher only works if you right click -> exit on the task bar, and then wait several seconds. Clicking the 'x' freezes the client.
+  - During installation, you MUST select a location in your C drive. I recommend in users\Public\Desktop.
+  - During installation, the installer never finishes when it's full. Once it's full, closing and reopening resolves this.
+  - Minimize the blacksmith launcher after game launch, or your clicks will bleed through the client when you try to swing.
 ```
 curl -fSsL https://raw.githubusercontent.com/nmlynch94/com.darkanddarker.DaD/main/install-dad-launcher.sh | bash
 ```
-- OPTIONAL: You can also do it manually, but just make sure you run the flatpak install command from the script in this repo to make sure you have all the correct dependencies.
-NOTE: The reason explicitly installing the dependencies above is necessary is due to a bug where dependency flatpaks are not installed properly for flatpaks installed from non-flathub sources. 
-
 ### Build and Install Locally
 
 1. Only use this next command if it has already been installed and you want to run from scratch. This will wipe out all saved settings.
@@ -37,4 +38,8 @@ flatpak install --user flathub org.gnome.Platform.Compat.i386//45
 - For RuneLite users, there is a steamdeck-config.properties file placed in the data directory (usually in /var or ~/.var depening on if it's a user or system install). It will show in your file browser if you look for a folder called "data".
 
 ### Updates
-To update, you can simply follow one of the above installation instructions on the latest code/release. Most updates will be self-updates from the launcher.
+To update, you can simply follow one of the above installation instructions on the latest code/release. Most updates will be self-updates from the launcher. Choose repair when you are presented the C++ installation prompt.
+
+### Future Improvements
+- Resolve the known issues (Contributions Welcome)
+- Use github pages to distribute via a flatmanager repo instead of using a single-file bundle
