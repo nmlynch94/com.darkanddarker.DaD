@@ -4,7 +4,7 @@ I am in no way affiliated with IRONMACE and running the launcher through linux i
 # What is it?
 Dark and Darker - in a flatpak!
 
-# Installation Methods (This is not available on Flathub due to them not allowing Wine applications)
+# Installation Methods. Choose one. (This is not available on Flathub due to them not allowing Wine applications)
 ### Release Bundle (easiest)
 - Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed NOTE: The first launch will take a long time and appear to be doing nothing. Winetricks is installing dependencies and it's installing the dependencies from the blacksmith installer exe.
 - Known Issues:
