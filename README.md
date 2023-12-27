@@ -9,7 +9,7 @@ Dark and Darker - in a flatpak!
 - Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed NOTE: The first launch will take a long time and appear to be doing nothing. Winetricks is installing dependencies and it's installing the dependencies from the blacksmith installer exe.
 - Known Issues:
   - Closing the launcher only works if you right click -> exit on the task bar, and then wait several seconds. Clicking the 'x' freezes the client. Even this sometimes does not work and will have to be killed. Launching from steam or Lutris may help this.
-  - During installation, the installer never finishes when it's full. Once it's full, closing and reopening resolves this.
+  - During installation after the launcher is open, the installer never finishes when the progress bar is full. Once it's full, closing and reopening resolves this.
   - Minimize the blacksmith launcher after game launch, or your clicks will bleed through the client when you try to swing.
   - You may need to alt tab out and in once after launch for clicks to register.
   - Credentials don't save on login, so you need to enter username and password every launch.
