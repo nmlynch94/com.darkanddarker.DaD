@@ -13,6 +13,7 @@ Dark and Darker - in a flatpak!
   - Minimize the blacksmith launcher after game launch, or your clicks will bleed through the client when you try to swing.
   - You may need to alt tab out and in once after launch for clicks to register.
   - Credentials don't save on login, so you need to enter username and password every launch.
+  - Update doesn't always work. In these cases, I click the cog -> scan and repair -> close after the progress bar fills and open again.
 ```
 curl -fSsL https://raw.githubusercontent.com/nmlynch94/com.darkanddarker.DaD/main/install-dad-launcher.sh | bash
 ```
