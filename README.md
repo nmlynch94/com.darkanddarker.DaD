@@ -7,7 +7,7 @@ Dark and Darker - in a flatpak!
 # Installation Methods. Choose one. (This is not available on Flathub due to them not allowing Wine applications)
 ### Release Bundle (easiest)
 - Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed NOTE: The first launch will take a long time and appear to be doing nothing. Winetricks is installing dependencies and it's installing the dependencies from the blacksmith installer exe.
-- Known Issues:
+- Known Issues (these are all generic wine + blacksmith issues, not unique to this flatpak):
   - Closing the launcher only works if you right click -> exit on the task bar, and then wait several seconds. Clicking the 'x' freezes the client. Even this sometimes does not work and will have to be killed. Launching from steam or Lutris may help this.
   - During installation after the launcher is open, the installer never finishes when the progress bar is full. Once it's full, closing and reopening resolves this.
   - Minimize the blacksmith launcher after game launch, or your clicks will bleed through the client when you try to swing.
