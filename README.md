@@ -9,6 +9,7 @@ Dark and Darker - in a flatpak!
 - Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed NOTE: The first launch will take a long time and appear to be doing nothing. Winetricks is installing dependencies and it's installing the dependencies from the blacksmith installer exe.
 - Known Issues (these are all generic wine + blacksmith issues, not unique to this flatpak):
   - Closing the launcher only works if you right click -> exit on the task bar, and then wait several seconds. Clicking the 'x' freezes the client. Even this sometimes does not work and will have to be killed. Launching from steam will help this because then clicking "stop" in steam will kill all processes.
+    - If on the steam deck, skip all the next few steps and just right click on the shortcut in the applications menu -> Add Steam Shortcut.
     - In steam, choose "Games" -> "Add Non-steam shortcut"
     - Choose any program and choose Add, just to create an entry
     - Right click on the new entry -> Properties
