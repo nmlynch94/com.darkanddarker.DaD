@@ -21,6 +21,9 @@ if [ ! -f "$XDG_DATA_HOME"/BLACKSMITH ] || [ $(cat "$XDG_DATA_HOME"/BLACKSMITH) 
     WINEDEBUG="-all" WINEPREFIX="$wineprefix" winetricks --unattended wininet urlmon
     WINEDEBUG="-all" WINEPREFIX="$wineprefix" wineserver -k
 
+    WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURRENT_USER\Software\Wine\AppDefaults\DungeonCrawler.exe\DllOverrides" /v "urlmon" /t REG_SZ /d "builtin" /f
+    WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURRENT_USER\Software\Wine\AppDefaults\DungeonCrawler.exe\DllOverrides" /v "wininet" /t REG_SZ /d "builtin" /f
+
     WINEPREFIX="$wineprefix" "$winebin/wine" "$blacksmith_path"/VC_redist.x64.exe /silent
 fi
 
