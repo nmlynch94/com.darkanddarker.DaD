@@ -15,7 +15,7 @@ Dark and Darker - in a flatpak!
     - Right click on the new entry -> Properties
     - Set Set target = "/usr/bin/flatpak", Launch Options = "run com.darkanddarker.DaD", "start in" should be empty.
     - Also feel free to edit the name of the shortcut
-  - During installation after the launcher is open, the installer never finishes when the progress bar is full. Once it's full, closing and reopening resolves this.
+  - During installation after the launcher is open, the installer looks garbled because it seems to overlay all displayed numbers on top of itself. It is working and you can watch the progress bar. The play button will show when it is done.
   - Minimize the blacksmith launcher after game launch, or your clicks will bleed through the client when you try to swing.
   - You may need to alt tab out and in once after launch for clicks to register.
   - Credentials don't save on login, so you need to enter username and password every launch.
