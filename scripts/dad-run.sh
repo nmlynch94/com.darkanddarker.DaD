@@ -23,10 +23,8 @@ if [ ! -f "$XDG_DATA_HOME"/BLACKSMITH ] || [ $(cat "$XDG_DATA_HOME"/BLACKSMITH) 
 
     WINEPREFIX="$wineprefix" "$winebin/wine" "$blacksmith_path"/VC_redist.x64.exe /silent
 fi
-if ! grep -q "wininet" "$wineprefix/user.reg"; then
+if ! grep -q "DungeonCrawler.exe" "$wineprefix/user.reg"; then
     WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURRENT_USER\Software\Wine\AppDefaults\DungeonCrawler.exe\DllOverrides" /v "wininet" /t REG_SZ /d "builtin" /f
-fi
-if ! grep -q "urlmon" "$wineprefix/user.reg"; then
     WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURRENT_USER\Software\Wine\AppDefaults\DungeonCrawler.exe\DllOverrides" /v "urlmon" /t REG_SZ /d "builtin" /f
 fi
 # Run with overrides for dxvk
