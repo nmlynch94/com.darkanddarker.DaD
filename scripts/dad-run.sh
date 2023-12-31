@@ -21,11 +21,13 @@ if [ ! -f "$XDG_DATA_HOME"/BLACKSMITH ] || [ $(cat "$XDG_DATA_HOME"/BLACKSMITH) 
     WINEDEBUG="-all" WINEPREFIX="$wineprefix" winetricks --unattended wininet urlmon
     WINEDEBUG="-all" WINEPREFIX="$wineprefix" wineserver -k
 
-    WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURRENT_USER\Software\Wine\AppDefaults\DungeonCrawler.exe\DllOverrides" /v "urlmon" /t REG_SZ /d "builtin" /f
-    WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURRENT_USER\Software\Wine\AppDefaults\DungeonCrawler.exe\DllOverrides" /v "wininet" /t REG_SZ /d "builtin" /f
-
     WINEPREFIX="$wineprefix" "$winebin/wine" "$blacksmith_path"/VC_redist.x64.exe /silent
 fi
-
+if ! grep -q "wininet" "$wineprefix/user.reg"; then
+    WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURRENT_USER\Software\Wine\AppDefaults\DungeonCrawler.exe\DllOverrides" /v "wininet" /t REG_SZ /d "builtin" /f
+fi
+if ! grep -q "urlmon" "$wineprefix/user.reg"; then
+    WINEPREFIX="$wineprefix" WINEDEBUG="-all" "$winebin/wine" reg.exe add "HKEY_CURRENT_USER\Software\Wine\AppDefaults\DungeonCrawler.exe\DllOverrides" /v "urlmon" /t REG_SZ /d "builtin" /f
+fi
 # Run with overrides for dxvk
 WINEPREFIX="$wineprefix" WINEDLLOVERRIDES="d3d11=n;d3d10core=n;dxgi=n;d3d9=n" "$winebin/wine" "$blacksmith_launcher_exe_path"
