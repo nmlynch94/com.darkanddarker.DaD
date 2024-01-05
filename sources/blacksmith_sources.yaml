@@ -2,38 +2,38 @@
   filename: BlacksmithBootstrap.exe
   url: http://cdn.darkanddarker.com/launcher/BlacksmithBootstrap.exe
   dest: IRONMACE/Blacksmith/BlacksmithBootstrap.exe
-  sha256: c4d81f60be222f97714cf13cc6774e3629aaa43f83881ed2db86ba25c0ec049c
-  size: 599472
+  sha256: f00733c06c9003402adb1513a4b0a0374973a02c294522280fab2997669b348f
+  size: 607664
 - type: extra-data
   filename: Blacksmith.exe
   url: http://cdn.darkanddarker.com/launcher/Blacksmith.exe
   dest: IRONMACE/Blacksmith/Blacksmith.exe
-  sha256: 79537cbafe547ab81524fb284fe255adb910458a86539f82307876ca40aaaf6b
-  size: 25447856
+  sha256: 36ed6c34c8eb769e01d4b3556f3ab7acf1acf75454c26c80b33f362bf4b0c10c
+  size: 25348016
 - type: extra-data
   filename: Debris.exe
   url: http://cdn.darkanddarker.com/launcher/Debris.exe
   dest: IRONMACE/Blacksmith/Debris.exe
-  sha256: e0b717dabf74686a2204ca48b6263c07e297a1b17a165708db2fa9e53d2da817
-  size: 4163504
+  sha256: 81e1e6508316ee7b0553ff00f1d18d753364a514da2b01e1f9701c7b6b40ed46
+  size: 4177840
 - type: extra-data
   filename: BlacksmithWorker.exe
   url: http://cdn.darkanddarker.com/launcher/BlacksmithWorker.exe
   dest: IRONMACE/Blacksmith/BlacksmithWorker.exe
-  sha256: 4631333c97c015e15e72287893541527d6237a76cc5acc9d6a8a13dbf20aeaea
-  size: 190384
+  sha256: 6bb3df60754f4b59097c0df6c07b3c1f81f401ccbafe22daaaf5ff9e385e96fd
+  size: 202160
 - type: extra-data
   filename: DebrisWorker.exe
   url: http://cdn.darkanddarker.com/launcher/DebrisWorker.exe
   dest: IRONMACE/Blacksmith/DebrisWorker.exe
-  sha256: 52c4fafe5d9fdbdd1340582249571c402ce77332c7458e8dc1680c83df84a1dd
-  size: 12353456
+  sha256: b7d57624c0ce8e457ec69be27bbdc2a210368b9ec8ecc4575ef7b027e21d5616
+  size: 13397936
 - type: extra-data
   filename: Blacksmith Uninstaller.exe
   url: http://cdn.darkanddarker.com/launcher/Blacksmith%20Uninstaller.exe
   dest: IRONMACE/Blacksmith/Blacksmith Uninstaller.exe
-  sha256: 1cbfd4357da2be12e97ac0f9df4d1cf7002483376f93664e74859583a1af2848
-  size: 169904
+  sha256: 1198d8e7915b78b6c7bd3642ba83b88320d1607f3e95f43f958ed92df71e2da6
+  size: 180144
 - type: extra-data
   filename: NotoSansCJKkr-DemiLight.otf
   url: http://cdn.darkanddarker.com/launcher/Fonts/NotoSansCJKkr-DemiLight.otf
