@@ -2,37 +2,37 @@
   filename: BlacksmithBootstrap.exe
   url: http://cdn.darkanddarker.com/launcher/BlacksmithBootstrap.exe
   dest: IRONMACE/Blacksmith/BlacksmithBootstrap.exe
-  sha256: 2daa2447b9c82f6e55cfbef0b982ea35334b608349cce934c08bc38d8a3e9bd6
+  sha256: c157515f076828522fb23ce7df2778445373651d4255afc55bf0038da3dd87ac
   size: 607664
 - type: extra-data
   filename: Blacksmith.exe
   url: http://cdn.darkanddarker.com/launcher/Blacksmith.exe
   dest: IRONMACE/Blacksmith/Blacksmith.exe
-  sha256: 46cf8886d03b93644e11433153aa301c3d174c751c7caf0cb19cf20d16bb06e1
-  size: 25403824
+  sha256: 6eb56e8966d3dff5f6ff1957069cc8dffa77e82fa0c63bdf5801d623cca97a07
+  size: 25373104
 - type: extra-data
   filename: Debris.exe
   url: http://cdn.darkanddarker.com/launcher/Debris.exe
   dest: IRONMACE/Blacksmith/Debris.exe
-  sha256: 8a5782e4053d093929263c3a51663a06563aaef724c92eb7963bf68515223686
+  sha256: 4ed9d5ca52203296fa952fc5c0ddf20b536e16831fbab59fc84fe787c8e633d2
   size: 4177840
 - type: extra-data
   filename: BlacksmithWorker.exe
   url: http://cdn.darkanddarker.com/launcher/BlacksmithWorker.exe
   dest: IRONMACE/Blacksmith/BlacksmithWorker.exe
-  sha256: 1870b5e77b526007aa3cbad53a6e6a2c10f9ae91be26d6e4d3c2a4a48467c94e
-  size: 204208
+  sha256: 29eb68f7845b385814d05380a366f0ab4fb03affb9e601c53fac82b0a954cdc4
+  size: 209328
 - type: extra-data
   filename: DebrisWorker.exe
   url: http://cdn.darkanddarker.com/launcher/DebrisWorker.exe
   dest: IRONMACE/Blacksmith/DebrisWorker.exe
-  sha256: 240de4613ae3e0b4bfc2779cf40b2c9a30e8f91a37872fcc14f2df5fd921ec51
-  size: 13362096
+  sha256: e96851409e6b3299cb070073646a947bee49f23f8801ba2447461348b331119a
+  size: 15582640
 - type: extra-data
   filename: Blacksmith Uninstaller.exe
   url: http://cdn.darkanddarker.com/launcher/Blacksmith%20Uninstaller.exe
   dest: IRONMACE/Blacksmith/Blacksmith Uninstaller.exe
-  sha256: 6223c086e26c858bafde954330bf765dd2ee25c0025f024470493a62c80d0097
+  sha256: baf631a8d7eed3079efcfc04948c0da2b6a26485892ee9b00f957b569af3fe9c
   size: 180144
 - type: extra-data
   filename: NotoSansCJKkr-DemiLight.otf
