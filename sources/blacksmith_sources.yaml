@@ -2,37 +2,37 @@
   filename: BlacksmithBootstrap.exe
   url: http://cdn.darkanddarker.com/launcher/BlacksmithBootstrap.exe
   dest: IRONMACE/Blacksmith/BlacksmithBootstrap.exe
-  sha256: b9180237fc7d1b63734ba8abd828dd205d0c003a2d95d43564a4f593102a411c
-  size: 608688
+  sha256: 0d458911d7a917cafa6e3859c4f3fe588f0f0287a2051a86bedfbeabbb954090
+  size: 609200
 - type: extra-data
   filename: BlacksmithIM.exe
   url: http://cdn.darkanddarker.com/launcher/BlacksmithIM.exe
   dest: IRONMACE/Blacksmith/BlacksmithIM.exe
-  sha256: eee09dcb7c072fa37341381fd6238bc09628e3d2732aa56325cfd1d81b6027ca
-  size: 25591728
+  sha256: fcd4adaba8069d17d795aa8236860e09a404b55c0302b80a3c4f502bad575b6b
+  size: 25616816
 - type: extra-data
   filename: Debris.exe
   url: http://cdn.darkanddarker.com/launcher/Debris.exe
   dest: IRONMACE/Blacksmith/Debris.exe
-  sha256: a66d70f7debd2dd50301202fd0478af29146da4b5d67af5f52cac0e96b9971b1
+  sha256: dcffb213d4806920bbadc13591215b9dbbb4dc557c8b1208e84df1496d4c17f3
   size: 4177840
 - type: extra-data
   filename: BlacksmithWorker.exe
   url: http://cdn.darkanddarker.com/launcher/BlacksmithWorker.exe
   dest: IRONMACE/Blacksmith/BlacksmithWorker.exe
-  sha256: 8c3685b42b5e184285bdafde5db539c3ad1fa46aa27313e22247f9160dfd0d5e
-  size: 210352
+  sha256: a50686bfc623c2a6bed7951c163cfc57aac706df88b8c2ea1b40b75207738c0d
+  size: 210864
 - type: extra-data
   filename: DebrisWorker.exe
   url: http://cdn.darkanddarker.com/launcher/DebrisWorker.exe
   dest: IRONMACE/Blacksmith/DebrisWorker.exe
-  sha256: 321e6f07306b5f9e333772c03a8e5506b9dd078df577ff8cfbb0f7bd717050d2
-  size: 17353648
+  sha256: 781ea76654518d3185ecdde98aa2dc0ae7b0bd39116f15e0b4c24dbe99f7f2c6
+  size: 17352112
 - type: extra-data
   filename: Blacksmith Uninstaller.exe
   url: http://cdn.darkanddarker.com/launcher/Blacksmith%20Uninstaller.exe
   dest: IRONMACE/Blacksmith/Blacksmith Uninstaller.exe
-  sha256: 284a76e1c41b4e681ad865ffd48639ba2a4e1e5baef72adde38f433870e57ad2
+  sha256: c64d4568bba9d9a525e2d6a0d2ef29a1359ed5009357ec3fccb5bf02c384eff6
   size: 186288
 - type: extra-data
   filename: NotoSansCJKkr-DemiLight.otf
