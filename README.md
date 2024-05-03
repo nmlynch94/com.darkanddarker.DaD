@@ -6,24 +6,11 @@ Dark and Darker - in a flatpak!
 
 # Installation Methods. Choose one. (This is not available on Flathub due to them not allowing Wine applications)
 ### Release Bundle (easiest)
-- Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed NOTE: The first launch will take a long time and appear to be doing nothing. Winetricks is installing dependencies and it's installing the dependencies from the blacksmith installer exe.
-- Known Issues (these are all generic wine + blacksmith issues, not unique to this flatpak):
-  - Closing the launcher only works if you right click -> exit on the task bar, and then wait several seconds. Clicking the 'x' freezes the client. Even this sometimes does not work and will have to be killed. Launching from steam will help this because then clicking "stop" in steam will kill all processes.
-    - If on the steam deck, skip all the next few steps and just right click on the shortcut in the applications menu -> Add Steam Shortcut.
-    - In steam, choose "Games" -> "Add Non-steam shortcut"
-    - Choose any program and choose Add, just to create an entry
-    - Right click on the new entry -> Properties
-    - Set Set target = "/usr/bin/flatpak", Launch Options = "run com.darkanddarker.DaD", "start in" should be empty.
-    - Also feel free to edit the name of the shortcut
-  - During installation after the launcher is open, the installer looks garbled because it seems to overlay all displayed numbers on top of itself. It is working and you can watch the progress bar. The play button will show when it is done.
-  - Minimize the blacksmith launcher after game launch, or your clicks will bleed through the client when you try to swing.
-  - You may need to alt tab out and in once after launch for clicks to register.
-  - Credentials don't save on login, so you need to enter username and password every launch.
-  - Update doesn't always work. In these cases, I click the cog -> scan and repair -> close after the progress bar fills and open again.
 ```
 curl -fSsL https://raw.githubusercontent.com/nmlynch94/com.darkanddarker.DaD/main/install-dad-launcher.sh | bash
 ```
 For the first run, winetricks dependencies will need to install. I recommend running via the cli one time in order to make sure nothing is frozen. You can launch from the application menu going forward.
+
 ```
 flatpak run com.darkanddarker.DaD
 ```
@@ -48,6 +35,22 @@ flatpak install --user flathub org.gnome.Platform.Compat.i386//45
 - You may want to rename your shortcut to DarkandDarker because the way the deck searches community control schemes is by matching your game's name.
 - I recommend the release bundle method especially, because the flatpak-builder method will require you to disable your Read Only partition in order to install flatpak-builder https://steamdecki.org/SteamOS/Read-only_Filesystem. I don't recommend doing this unless you are familiar enough with Linux to know you can ignore this warning.
 - For RuneLite users, there is a steamdeck-config.properties file placed in the data directory (usually in /var or ~/.var depening on if it's a user or system install). It will show in your file browser if you look for a folder called "data".
+
+### Known issues
+- Here is a one liner to make sure all dependencies are installed and also install the latest release. This will likely take several minutes if flatpak is newly installed NOTE: The first launch will take a long time and appear to be doing nothing. Winetricks is installing dependencies and it's installing the dependencies from the blacksmith installer exe.
+- Known Issues (these are all generic wine + blacksmith issues, not unique to this flatpak):
+  - Closing the launcher only works if you right click -> exit on the task bar, and then wait several seconds. Clicking the 'x' freezes the client. Even this sometimes does not work and will have to be killed. Launching from steam will help this because then clicking "stop" in steam will kill all processes.
+    - If on the steam deck, skip all the next few steps and just right click on the shortcut in the applications menu -> Add Steam Shortcut.
+    - In steam, choose "Games" -> "Add Non-steam shortcut"
+    - Choose any program and choose Add, just to create an entry
+    - Right click on the new entry -> Properties
+    - Set Set target = "/usr/bin/flatpak", Launch Options = "run com.darkanddarker.DaD", "start in" should be empty.
+    - Also feel free to edit the name of the shortcut
+  - During installation after the launcher is open, the installer looks garbled because it seems to overlay all displayed numbers on top of itself. It is working and you can watch the progress bar. The play button will show when it is done.
+  - Minimize the blacksmith launcher after game launch, or your clicks will bleed through the client when you try to swing.
+  - You may need to alt tab out and in once after launch for clicks to register.
+  - Credentials don't save on login, so you need to enter username and password every launch.
+  - Update doesn't always work. In these cases, I click the cog -> scan and repair -> close after the progress bar fills and open again.
 
 ### Updates
 To update, you can simply follow one of the above installation instructions on the latest code/release. Most updates will be self-updates from the launcher. Choose repair when you are presented the C++ installation prompt.
