@@ -2,37 +2,31 @@
   filename: BlacksmithBootstrap.exe
   url: http://cdn.darkanddarker.com/launcher/BlacksmithBootstrap.exe
   dest: IRONMACE/Blacksmith/BlacksmithBootstrap.exe
-  sha256: 0d458911d7a917cafa6e3859c4f3fe588f0f0287a2051a86bedfbeabbb954090
+  sha256: 982075b91bcf856e8b59d1f52a85ae74883b55097c77f50a31fea78d6f992a8c
   size: 609200
 - type: extra-data
   filename: BlacksmithIM.exe
   url: http://cdn.darkanddarker.com/launcher/BlacksmithIM.exe
   dest: IRONMACE/Blacksmith/BlacksmithIM.exe
-  sha256: fcd4adaba8069d17d795aa8236860e09a404b55c0302b80a3c4f502bad575b6b
-  size: 25616816
+  sha256: bcec6305ea108bd73db898aa5d5c009c0a861c8bfd54911c03d647b1e04d0457
+  size: 25237936
 - type: extra-data
   filename: Debris.exe
   url: http://cdn.darkanddarker.com/launcher/Debris.exe
   dest: IRONMACE/Blacksmith/Debris.exe
-  sha256: dcffb213d4806920bbadc13591215b9dbbb4dc557c8b1208e84df1496d4c17f3
+  sha256: f11a30e323564ff0875a530f24f17a4dc2919bf5c02fc2e8e27ad33c60116373
   size: 4177840
 - type: extra-data
   filename: BlacksmithWorker.exe
   url: http://cdn.darkanddarker.com/launcher/BlacksmithWorker.exe
   dest: IRONMACE/Blacksmith/BlacksmithWorker.exe
-  sha256: a50686bfc623c2a6bed7951c163cfc57aac706df88b8c2ea1b40b75207738c0d
-  size: 210864
-- type: extra-data
-  filename: DebrisWorker.exe
-  url: http://cdn.darkanddarker.com/launcher/DebrisWorker.exe
-  dest: IRONMACE/Blacksmith/DebrisWorker.exe
-  sha256: 781ea76654518d3185ecdde98aa2dc0ae7b0bd39116f15e0b4c24dbe99f7f2c6
-  size: 17352112
+  sha256: fc93b7a3bb6d7165559d3d0820b86d04344e4bf6396be88ffe5f3afb534bcd37
+  size: 210352
 - type: extra-data
   filename: Blacksmith Uninstaller.exe
   url: http://cdn.darkanddarker.com/launcher/Blacksmith%20Uninstaller.exe
   dest: IRONMACE/Blacksmith/Blacksmith Uninstaller.exe
-  sha256: c64d4568bba9d9a525e2d6a0d2ef29a1359ed5009357ec3fccb5bf02c384eff6
+  sha256: 34524e272e8be4eb25e84583224e0af532db64bc5cb5b49bbb3daa65737e92bc
   size: 186288
 - type: extra-data
   filename: NotoSansCJKkr-DemiLight.otf
