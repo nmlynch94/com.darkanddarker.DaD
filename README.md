@@ -5,6 +5,9 @@ I am in no way affiliated with IRONMACE and running the launcher through linux i
 Dark and Darker - in a flatpak!
 
 # Installation Methods. Choose one. (This is not available on Flathub due to them not allowing Wine applications)
+
+### Steam - As of time of writing on 6/15/2024, Dark and Darker is back on steam. This is a much better user experience than the options below. Simply install on steam and run there.
+
 ### Release Bundle (easiest) - If you don't understand the below options, this one command below is all you need to get up and running. It may take 10+ minutes to complete installation.
 ```
 curl -fSsL https://raw.githubusercontent.com/nmlynch94/com.darkanddarker.DaD/main/install-dad-launcher.sh | bash
