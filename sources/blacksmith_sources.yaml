@@ -1,66 +1,66 @@
-- type: extra-data
-  filename: BlacksmithBootstrap.exe
-  url: http://cdn.darkanddarker.com/launcher/BlacksmithBootstrap.exe
-  dest: IRONMACE/Blacksmith/BlacksmithBootstrap.exe
-  sha256: 8821b3f7750c4858675d469c2c851ddaaf7eba1bd98f6272eca1f64e5adb7bdc
-  size: 608688
-- type: extra-data
-  filename: BlacksmithIM.exe
-  url: http://cdn.darkanddarker.com/launcher/BlacksmithIM.exe
-  dest: IRONMACE/Blacksmith/BlacksmithIM.exe
-  sha256: a00d17e84245ab320c6702fd5876bee224ebae175445df8fe323bdb889e3ce9e
-  size: 25348528
-- type: extra-data
-  filename: Debris.exe
-  url: http://cdn.darkanddarker.com/launcher/Debris.exe
-  dest: IRONMACE/Blacksmith/Debris.exe
-  sha256: 506c9f1816d94faaa2b0ae53ca6f6bd34ad269f03ac4ee2ede23a98b0740204e
-  size: 4177840
-- type: extra-data
-  filename: BlacksmithWorker.exe
-  url: http://cdn.darkanddarker.com/launcher/BlacksmithWorker.exe
-  dest: IRONMACE/Blacksmith/BlacksmithWorker.exe
-  sha256: aed13d99cc9201d4a98a8fba8cf195f042ab0a9a754e8feb4f4eb9b7c84a21fa
-  size: 210352
-- type: extra-data
-  filename: Blacksmith Uninstaller.exe
-  url: http://cdn.darkanddarker.com/launcher/Blacksmith%20Uninstaller.exe
-  dest: IRONMACE/Blacksmith/Blacksmith Uninstaller.exe
-  sha256: 7ec95295136a1f00fa41794d0f3083d56f471f39070c0fbaa37ad8e5b9b39abc
-  size: 186288
-- type: extra-data
-  filename: NotoSansCJKkr-DemiLight.otf
-  url: http://cdn.darkanddarker.com/launcher/Fonts/NotoSansCJKkr-DemiLight.otf
-  dest: IRONMACE/Blacksmith/Fonts/NotoSansCJKkr-DemiLight.otf
-  sha256: 6913976f7c49070ca536c2f0a9e2e33dacd904311e38b1d8770996a0520e25b7
-  size: 16397784
-- type: extra-data
-  filename: tdat0
-  url: http://cdn.darkanddarker.com/launcher/Data/tdat0
-  dest: IRONMACE/Blacksmith/Data/tdat0
-  sha256: 8dc6f513b7324fa01b27d6c58db4807e34aa05e4865d8029fb5c8a43666fc27a
-  size: 21980
-- type: extra-data
-  filename: tdat1
-  url: http://cdn.darkanddarker.com/launcher/Data/tdat1
-  dest: IRONMACE/Blacksmith/Data/tdat1
-  sha256: 555eaf2b9f2eb5c4a380db3335afd92d494761580a46e04d197b88ff858c91e5
-  size: 30128
-- type: extra-data
-  filename: tdat2
-  url: http://cdn.darkanddarker.com/launcher/Data/tdat2
-  dest: IRONMACE/Blacksmith/Data/tdat2
-  sha256: 555eaf2b9f2eb5c4a380db3335afd92d494761580a46e04d197b88ff858c91e5
-  size: 30128
-- type: extra-data
-  filename: tdat3
-  url: http://cdn.darkanddarker.com/launcher/Data/tdat3
-  dest: IRONMACE/Blacksmith/Data/tdat3
-  sha256: 555eaf2b9f2eb5c4a380db3335afd92d494761580a46e04d197b88ff858c91e5
-  size: 30128
-- type: extra-data
-  filename: tdat4
-  url: http://cdn.darkanddarker.com/launcher/Data/tdat4
-  dest: IRONMACE/Blacksmith/Data/tdat4
-  sha256: 555eaf2b9f2eb5c4a380db3335afd92d494761580a46e04d197b88ff858c91e5
-  size: 30128
+  - type: extra-data
+    filename: BlacksmithBootstrap.exe
+    url: http://cdn.darkanddarker.com/launcher/BlacksmithBootstrap.exe
+    dest: IRONMACE/Blacksmith/BlacksmithBootstrap.exe
+    sha256: 105d1b317f4d4ddb405d89849e3f207d2d2dd5aff60ce1e980abceeaccefa324
+    size: 608688
+  - type: extra-data
+    filename: BlacksmithIM.exe
+    url: http://cdn.darkanddarker.com/launcher/BlacksmithIM.exe
+    dest: IRONMACE/Blacksmith/BlacksmithIM.exe
+    sha256: 1c6b0bcc6d18f8e10a4abf59bc67e294d679622d6acf45c2d3def90e5d7f2f58
+    size: 25248688
+  - type: extra-data
+    filename: Debris.exe
+    url: http://cdn.darkanddarker.com/launcher/Debris.exe
+    dest: IRONMACE/Blacksmith/Debris.exe
+    sha256: 16c936744c60226658ca41be5d25ee806795a49aa5afbc666d217e24d75f0e2c
+    size: 4177840
+  - type: extra-data
+    filename: BlacksmithWorker.exe
+    url: http://cdn.darkanddarker.com/launcher/BlacksmithWorker.exe
+    dest: IRONMACE/Blacksmith/BlacksmithWorker.exe
+    sha256: 547effa7451a02a4078ab647355ca391d9dc0b11a4c3377e22704efd0b28bd42
+    size: 210352
+  - type: extra-data
+    filename: Blacksmith Uninstaller.exe
+    url: http://cdn.darkanddarker.com/launcher/Blacksmith%20Uninstaller.exe
+    dest: IRONMACE/Blacksmith/Blacksmith Uninstaller.exe
+    sha256: ebdc2b28e9d0690d084bcc265c660dc94a52e5e622cf44497d49c3fa1e77c6de
+    size: 186288
+  - type: extra-data
+    filename: NotoSansCJKkr-DemiLight.otf
+    url: http://cdn.darkanddarker.com/launcher/Fonts/NotoSansCJKkr-DemiLight.otf
+    dest: IRONMACE/Blacksmith/Fonts/NotoSansCJKkr-DemiLight.otf
+    sha256: 6913976f7c49070ca536c2f0a9e2e33dacd904311e38b1d8770996a0520e25b7
+    size: 16397784
+  - type: extra-data
+    filename: tdat0
+    url: http://cdn.darkanddarker.com/launcher/Data/tdat0
+    dest: IRONMACE/Blacksmith/Data/tdat0
+    sha256: 8dc6f513b7324fa01b27d6c58db4807e34aa05e4865d8029fb5c8a43666fc27a
+    size: 21980
+  - type: extra-data
+    filename: tdat1
+    url: http://cdn.darkanddarker.com/launcher/Data/tdat1
+    dest: IRONMACE/Blacksmith/Data/tdat1
+    sha256: 555eaf2b9f2eb5c4a380db3335afd92d494761580a46e04d197b88ff858c91e5
+    size: 30128
+  - type: extra-data
+    filename: tdat2
+    url: http://cdn.darkanddarker.com/launcher/Data/tdat2
+    dest: IRONMACE/Blacksmith/Data/tdat2
+    sha256: 555eaf2b9f2eb5c4a380db3335afd92d494761580a46e04d197b88ff858c91e5
+    size: 30128
+  - type: extra-data
+    filename: tdat3
+    url: http://cdn.darkanddarker.com/launcher/Data/tdat3
+    dest: IRONMACE/Blacksmith/Data/tdat3
+    sha256: 555eaf2b9f2eb5c4a380db3335afd92d494761580a46e04d197b88ff858c91e5
+    size: 30128
+  - type: extra-data
+    filename: tdat4
+    url: http://cdn.darkanddarker.com/launcher/Data/tdat4
+    dest: IRONMACE/Blacksmith/Data/tdat4
+    sha256: 555eaf2b9f2eb5c4a380db3335afd92d494761580a46e04d197b88ff858c91e5
+    size: 30128
