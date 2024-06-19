@@ -53,6 +53,40 @@ modules:
           version-query: .tag_name | sub("^GE-Proton-"; "")
           url-query: .assets[] | select(.name=="wine-lutris-" + $version + "-x86_64.tar.xz")
             | .browser_download_url
+  - name: winetricks
+    no-autogen: true
+    make-args:
+      - PREFIX=/app
+    make-install-args:
+      - PREFIX=/app
+    sources:
+      - type: archive
+        archive-type: tar-gzip
+        url: https://api.github.com/repos/Winetricks/winetricks/tarball/20230212
+        sha256: 01d81eaa9ba2d900df8eb7a2928688aa280a950d3f55e45528ccf319bd26f3ec
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/Winetricks/winetricks/releases/latest
+          version-query: .tag_name
+          url-query: .tarball_url
+          timestamp-query: .published_at
+    cleanup:
+      - /share
+    modules:
+      - name: cabextract
+        build-options:
+          strip: true
+        sources:
+          - type: archive
+            url: https://www.cabextract.org.uk/cabextract-1.11.tar.gz
+            sha256: b5546db1155e4c718ff3d4b278573604f30dd64c3c5bfd4657cd089b823a3ac6
+            x-checker-data:
+              type: anitya
+              project-id: 245
+              stable-only: true
+              url-template: https://www.cabextract.org.uk/cabextract-$version.tar.gz
+        cleanup:
+          - /share/man
   - name: dad-launcher
     buildsystem: simple
     build-commands:
